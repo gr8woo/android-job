@@ -67,7 +67,8 @@ public final class JobRescheduleService extends IntentService {
             CAT.d("Reschedule %d jobs of %d jobs", rescheduledCount, requests.size());
 
         } finally {
-            WakefulBroadcastReceiver.completeWakefulIntent(intent);
+            if(intent != null)
+                WakefulBroadcastReceiver.completeWakefulIntent(intent);
         }
 
     }
